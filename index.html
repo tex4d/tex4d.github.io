@@ -161,62 +161,14 @@
 </section>
 <!-- End teaser video -->
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            3D meshes are widely used in computer vision and graphics because of their efficiency in animation and minimal memory footprint. They are extensively employed in movies, games, AR, and VR, leading to the creation of a vast number of mesh sequences. However, creating temporally consistent and realistic textures for these mesh sequences remains labor-intensive for professional artists. On the other hand, video diffusion models have demonstrated remarkable capabilities in text-driven video generation, enabling users to create countless video clips based solely on their imagination. Despite their strengths, these models often lack 3D geometry awareness and struggle with achieving multi-view consistent texturing for 3D mesh sequences. In this work, we present <b>Tex4D</b>, a zero-shot approach that integrates inherent 3D geometry knowledge from mesh sequences with the expressiveness of video diffusion models to produce multi-view and temporally consistent 4D textures. Given an untextured mesh sequence and a text prompt as inputs, our method enhances multi-view consistency by synchronizing the diffusion process across different views through latent aggregation in the UV space. To ensure temporal consistency, we leverage prior knowledge from a conditional video generation model for texture synthesis. However, straightforwardly combining the video diffusion model and the UV texture aggregation leads to blurry results. We analyze the underlying causes and propose a simple yet effective modification to the DDIM sampling process to address this issue. Additionally, we introduce a reference latent texture to strengthen the correlation between frames during the denoising process. To the best of our knowledge, <b>Tex4D</b> is the first method designed for 4D scene texturing. Extensive experiments demonstrate its superiority in producing multi-view and multi-frame consistent videos based on untextured mesh sequences.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="section hero">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h3 class="title is-3">Overview</h3>
-        <img src="./static/imgs/overview.png" alt="" style="display: block; margin: 0 auto; width: 100%; margin-bottom: 10px;">
-        <div class="content has-text-justified">
-          <p>
-            <span class="tag is-info is-light is-medium"><b>Pipeline:</b></span> Given a mesh sequence and a text prompt as inputs, Tex4D generates a UV-parameterized texture sequence that is both globally and temporally consistent, aligning with the prompt and the mesh sequence. We sample multi-view video sequences using a depth-aware video diffusion model. At each diffusion step, latent views are aggregated into UV space, followed by multi-view latent texture diffusion to ensure global consistency. To maintain temporal coherence and address self-occlusions, a Reference UV Blending module is applied at the end of each step. Finally, the latent textures are back-projected and decoded to produce RGB textures for each frame.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End image carousel -->
-
-<!-- Youtube video -->
-<!-- <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-          <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End youtube video -->
 
 
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Gallery Results</h2>
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Gallery Results</h2>
+      </div>
       <div class="content has-text-justified">
         <p>
           Our method generates multi-view consistent foreground objects with a diverse set of styles and prompts.
@@ -449,23 +401,72 @@
         </p>
       </div>
       <hr>
-
-      <div class="content has-text-justified">
-        <p>
-          <b>Note:</b> We took/generated mesh sequences from
-        </p>
-        <ul>
-          <li><a href="https://www.mixamo.com/">Mixamo</a></li>
-          <li><a href="https://github.com/GuyTevet/motion-diffusion-model/tree/main">Motion Diffusion Model</a> (HDM)</li>
-          <li><a href="https://sketchfab.com/">Sketchfab</a></li>
-        </ul>
-      </div>
       <!-- <h2 class="title is-3">Ablation Study</h2> -->
 
     </div>
   </div>
 </section>
 
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            3D meshes are widely used in computer vision and graphics because of their efficiency in animation and minimal memory footprint. They are extensively employed in movies, games, AR, and VR, leading to the creation of a vast number of mesh sequences. However, creating temporally consistent and realistic textures for these mesh sequences remains labor-intensive for professional artists. On the other hand, video diffusion models have demonstrated remarkable capabilities in text-driven video generation, enabling users to create countless video clips based solely on their imagination. Despite their strengths, these models often lack 3D geometry awareness and struggle with achieving multi-view consistent texturing for 3D mesh sequences. In this work, we present <b>Tex4D</b>, a zero-shot approach that integrates inherent 3D geometry knowledge from mesh sequences with the expressiveness of video diffusion models to produce multi-view and temporally consistent 4D textures. Given an untextured mesh sequence and a text prompt as inputs, our method enhances multi-view consistency by synchronizing the diffusion process across different views through latent aggregation in the UV space. To ensure temporal consistency, we leverage prior knowledge from a conditional video generation model for texture synthesis. However, straightforwardly combining the video diffusion model and the UV texture aggregation leads to blurry results. We analyze the underlying causes and propose a simple yet effective modification to the DDIM sampling process to address this issue. Additionally, we introduce a reference latent texture to strengthen the correlation between frames during the denoising process. To the best of our knowledge, <b>Tex4D</b> is the first method designed for 4D scene texturing. Extensive experiments demonstrate its superiority in producing multi-view and multi-frame consistent videos based on untextured mesh sequences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+
+<!-- Image carousel -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h3 class="title is-3">Overview</h3>
+        <img src="./static/imgs/overview.png" alt="" style="display: block; margin: 0 auto; width: 100%; margin-bottom: 10px;">
+        <div class="content has-text-justified">
+          <p>
+            <span class="tag is-info is-light is-medium"><b>Pipeline:</b></span> Given a mesh sequence and a text prompt as inputs, Tex4D generates a UV-parameterized texture sequence that is both globally and temporally consistent, aligning with the prompt and the mesh sequence. We sample multi-view video sequences using a depth-aware video diffusion model. At each diffusion step, latent views are aggregated into UV space, followed by multi-view latent texture diffusion to ensure global consistency. To maintain temporal coherence and address self-occlusions, a Reference UV Blending module is applied at the end of each step. Finally, the latent textures are back-projected and decoded to produce RGB textures for each frame.
+          </p>
+          <p>
+            In our experiments, we took/generated mesh sequences from
+          </p>
+          <ul>
+            <li><a href="https://www.mixamo.com/">Mixamo</a></li>
+            <li><a href="https://github.com/GuyTevet/motion-diffusion-model/tree/main">Motion Diffusion Model</a> (HDM)</li>
+            <li><a href="https://sketchfab.com/">Sketchfab</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End youtube video -->
 
 <section class="hero is-small is-light">
   <div class="hero-body">
