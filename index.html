@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Tex4D">
+  <meta property="og:title" content="Tex4D"/>
+  <meta property="og:description" content="Tex4D: Zero-shot 4D Scene Texturing with Video Diffusion Models"/>
+  <meta property="og:url" content="https://jzbao03.site/projects/Tex4D/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="./imgs/teaser_2k.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="Tex4D">
+  <meta name="twitter:description" content="Tex4D: Zero-shot 4D Scene Texturing with Video Diffusion Models">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="./imgs/teaser_2k.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Tex4D">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Tex4D</title>
+  <link rel="icon" type="image/x-icon" href="./static/imgs/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-floating-button@1.0.3/dist/css/bulma-floating-button.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontawesome-free-6.2.1@6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/main.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/fontawesome-free-6.2.1@6.2.1/js/all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/js/bulma-slider.min.js"></script>
+  <script src="static/js/main.js"></script>
+  <script src="static/js/video.js"></script>
+</head>
+<body>
+  <!-- <div id="loading">
+    <img id="loading-image" src="static/loading.gif" alt="Loading..." />Requesting Object Storage Service, this may take a while...
+  </div> -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              Tex4D: Zero-shot 4D Scene Texturing
+              <br>
+              with Video Diffusion Models
+            </h1>
+                  <div class="is-size-5 publication-authors">
+                    <!-- Paper authors -->
+                    <span class="author-block">
+                    </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">
+                    </span>
+                    <br>
+                    <!-- <span class="eql-cntrb"><small><sup>*</sup>Corresponding author</small></span> -->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="#" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark" disabled>
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- ArXiv abstract Link -->
+                    <span class="link-block">
+                      <a href="#" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark" disabled>
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                      </a>
+                    </span>
+
+                  <span class="link-block">
+                    <a href="#" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark" disabled>
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/ZqlwMatt/Tex4D" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+
+                  <!-- <span class="link-block tooltip">
+                    <a href="#"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="far fa-images"></i>
+                      </span>
+                      <span>Data</span>
+                    </a>
+                    <span class="tooltip-text">Coming soon.</span>
+                  </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="https://static.jzbao03.site/projects/tex4d/teaser_2k.png" id="tree" controls muted height="100%">
+        <source src="https://static.jzbao03.site/projects/tex4d/supp_video.mp4" type="video/mp4">
+        <source src="https://static.jzbao03.site/projects/tex4d/supp_video.mp4" type="video/ogg">
+      </video>
+      <!-- <img src="./imgs/teaser_2k.png" alt="" style="display: block; margin: 0 auto; width: 100%;"> -->
+      <h2 class="subtitle has-text-centered">
+        <b>TL;DR:</b> We present a method that takes an untextured, animated mesh sequence along with a text prompt as inputs, and generates multi-view, temporally consistent 4D textures.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            3D meshes are widely used in computer vision and graphics because of their efficiency in animation and minimal memory footprint. They are extensively employed in movies, games, AR, and VR, leading to the creation of a vast number of mesh sequences. However, creating temporally consistent and realistic textures for these mesh sequences remains labor-intensive for professional artists. On the other hand, video diffusion models have demonstrated remarkable capabilities in text-driven video generation, enabling users to create countless video clips based solely on their imagination. Despite their strengths, these models often lack 3D geometry awareness and struggle with achieving multi-view consistent texturing for 3D mesh sequences. In this work, we present <b>Tex4D</b>, a zero-shot approach that integrates inherent 3D geometry knowledge from mesh sequences with the expressiveness of video diffusion models to produce multi-view and temporally consistent 4D textures. Given an untextured mesh sequence and a text prompt as inputs, our method enhances multi-view consistency by synchronizing the diffusion process across different views through latent aggregation in the UV space. To ensure temporal consistency, we leverage prior knowledge from a conditional video generation model for texture synthesis. However, straightforwardly combining the video diffusion model and the UV texture aggregation leads to blurry results. We analyze the underlying causes and propose a simple yet effective modification to the DDIM sampling process to address this issue. Additionally, we introduce a reference latent texture to strengthen the correlation between frames during the denoising process. To the best of our knowledge, <b>Tex4D</b> is the first method designed for 4D scene texturing. Extensive experiments demonstrate its superiority in producing multi-view and multi-frame consistent videos based on untextured mesh sequences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h3 class="title is-3">Overview</h3>
+        <img src="./static/imgs/overview.png" alt="" style="display: block; margin: 0 auto; width: 100%; margin-bottom: 10px;">
+        <div class="content has-text-justified">
+          <p>
+            <span class="tag is-info is-light is-medium"><b>Pipeline:</b></span> Given a mesh sequence and a text prompt as inputs, Tex4D generates a UV-parameterized texture sequence that is both globally and temporally consistent, aligning with the prompt and the mesh sequence. We sample multi-view video sequences using a depth-aware video diffusion model. At each diffusion step, latent views are aggregated into UV space, followed by multi-view latent texture diffusion to ensure global consistency. To maintain temporal coherence and address self-occlusions, a Reference UV Blending module is applied at the end of each step. Finally, the latent textures are back-projected and decoded to produce RGB textures for each frame.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End youtube video -->
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Gallery Results</h2>
+      <div class="content has-text-justified">
+        <p>
+          Our method generates multi-view consistent foreground objects with a diverse set of styles and prompts.
+          <br>
+          <span style="color: red; font-weight: bold">Click to pause the following animations.</span>
+        </p>
+      </div>
+      
+      <h3 class="title is-4">Non-Human Animations</h3>
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="monster" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_boo2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>a ghost flashed a magical light, causing dramatic shifts in lighting.</em>
+            </span>
+            </strong>
+          </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="monster" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_boo1_2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>a dingy, magic King Boo, flashing a weird light, static background.</em>
+            </span>
+            </strong>
+          </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="monster" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_boo2_2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>a ghost flashed a magical light, causing dramatic shifts in lighting.</em>
+              <!-- <em>a sprite of fiery plums tilts its head, in full color.</em> -->
+            </span>
+            </strong>
+          </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="monster" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_snowman2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>a spirit in neon tilts its head, cyberpunk style.</em>
+            </span>
+            </strong>
+          </span>
+          </span>
+        </p>
+      </div>
+      <hr>
+
+      <h3 class="title is-4">Mixamo Animations</h3>
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="bot" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_bot.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>a sketch of bot dancing in a sandy beach, Van-Gogh style.</em>
+            </span>
+            </strong>
+          </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="joker" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_joker.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+              <span style="color: gray;">
+              <em>the Joker dancing in the bright stage.</em>
+              </span>
+            </strong>
+          </span>
+        </p>
+      </div>
+
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="monster" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_monster.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>a monster dancing in a mysterious jungle.</em>
+            </span>
+            </strong>
+          </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="monster" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_swim.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>a machinery swimming in the sea.</em>
+            </span>
+            </strong>
+          </span>
+        </p>
+      </div>
+
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="monster" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_swim2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>a Stormtrooper swimming in the sea.</em>
+            </span>
+            </strong>
+          </span>
+          </span>
+        </p>
+      </div>
+      <hr>
+
+      <h3 class="title is-4">HDM Animation (Text-to-Video)</h3>
+      <div class="columns is-centered is-gapless" style="margin:0 auto;width:100%;margin-bottom:8px;">
+        <div class="column">
+          <video id="monster" muted height="100%" class="video-soft-shadow scrollplay" preload="auto">
+            <source src="https://static.jzbao03.site/projects/tex4d/gallery_ironman.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="font-family: Google Sans, sans-serif; font-size: 1.1em;">
+        <p>
+          <span style="font-family: Google Sans, sans-serif;">
+          <span class="tag is-info is-light is-medium">
+            <strong>Prompt: 
+            <span style="color: gray;">
+              <em>the Ironman turns steering wheels in the space station.</em>
+            </span>
+            </strong>
+          </span>
+          </span>
+        </p>
+      </div>
+      <hr>
+
+      <div class="content has-text-justified">
+        <p>
+          <b>Note:</b> We took/generated mesh sequences from
+        </p>
+        <ul>
+          <li><a href="https://www.mixamo.com/">Mixamo</a></li>
+          <li><a href="https://github.com/GuyTevet/motion-diffusion-model/tree/main">Motion Diffusion Model</a> (HDM)</li>
+          <li><a href="https://sketchfab.com/">Sketchfab</a></li>
+        </ul>
+      </div>
+      <!-- <h2 class="title is-3">Ablation Study</h2> -->
+
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Quantitative Results</h2>
+      <div class="content has-text-justified">
+        <p>
+          We conducted a comprehensive A/B user study. Our study involved 67 participants who provided a total of 1104 valid responses based on six different scenes drawn from six previous works, with each scene producing videos from two different views.
+        </p>
+        <img src="./static/imgs/table.png" alt="" style="display: block; margin: 10pt auto; width: 100%;">
+        <p>
+          <b>Note:</b> For Frechet Video Distance (FVD) metric, we borrow the evaluation code from <a href="https://github.com/JunyaoHu/common_metrics_on_video_quality/blob/main/calculate_fvd.py" target="_blank">here</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+
+    </code></pre>
+  </div>
+</section>
+<!--End BibTex citation -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p style="font-size: 10pt;">
+            The <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">website template</a> was adpoted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>, licensed under <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+              <!-- <img src="static/licenses/cc-by-sa.svg" alt="CC BY-SA 4.0" width="50" height="17" /></a> -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+  </body>
+  <!-- <script type="application/javascript">
+    $(window).on('load', function () {
+      $('#loading').fadeOut();
+    }) 
+  </script> -->
+  </html>

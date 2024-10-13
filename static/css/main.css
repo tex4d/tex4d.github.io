@@ -1,0 +1,261 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-banner {
+  max-height: parent;
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+.slider-pagination .slider-page {
+  background: #000000;
+}
+
+.eql-cntrb { 
+  font-size: smaller;
+}
+
+/* aca-page */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent background */
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 12px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the link */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Prevents the text from wrapping */
+    font-size: 14px; /* Slightly smaller font size */
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(51, 51, 51, 0.9) transparent transparent transparent; /* Semi-transparent arrow */
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(2px);
+}
+
+/* video comparison */
+.video-row {
+  display: flex;
+}
+
+.video-slider {
+  flex: 33.33%;
+  padding: 5px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.video-compare-container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.videoMerge {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  background-size: cover;
+}
+
+.cropped-video{
+    width: 100%;
+    overflow:hidden;
+    display:block;
+}
+
+.no-controls::-webkit-media-controls,
+.no-controls::-webkit-media-controls-enclosure,
+.no-controls::-webkit-media-controls-panel,
+.no-controls::-webkit-media-controls-play-button,
+.no-controls::-webkit-media-controls-timeline {
+    display: none !important;
+}
+
+#loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1.0;
+  background-color: #fff;
+  z-index: 99;
+}
+
+#loading-image {
+  z-index: 100;
+}
+
+/* 添加新的渐变软阴影效果 */
+.video-soft-shadow {
+    border-radius: 12px;
+    padding: 3px; /* 为渐变边框留出空间 */
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.video-soft-shadow::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    padding: 3px; /* 与外层 padding 相同 */
+    border-radius: 12px;
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.video-soft-shadow video {
+    border-radius: 12px; /* 稍微小于外层边框的圆角 */
+    display: block;
+    width: 100%;
+    height: auto;
+}
